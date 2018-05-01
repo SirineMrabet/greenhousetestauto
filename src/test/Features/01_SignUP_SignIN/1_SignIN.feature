@@ -6,20 +6,25 @@ Feature: As a registered user I can sign-in
     Given I'm in the home page
     When I click on the link to sign-in
     And I enter <login> <password> 
-    And click on Create account button
-    Then a confirmation box will appear
+    And I click on sign-in button
+    Then the current user is connected
     Examples:
-      |FirstName | LastName | Password    | Gender     | Email                           |mm      | dd | aaaa |
-      | Sirine   | Mrabet   | s@tg$M9%    | Female     | mrabet.sirine1@gmail.com        |Sptembre| 30 | 1986 |
+      | login            | password    |
+      | SirineMrabet     | s@tg$M9%    |
 
   @stable
   Scenario Outline:  Sign-in a non-registered user
     Given I'm in the home page
-    When I click on the link to join
-    And I enter <FirstName> <LastName> <Email> <Password> <Gender> birthday <mm><dd><aaaa>
-    And Accept the term of use
-    And click on Create account button
-    Then a confirmation box will appear
+    When I click on the link to sign-in
+    And I enter <login> <password>
+    And I click on sign-in button
+    Then the current user is not connected
+    And an error msg is displayed indicating that the current user does no have an account
     Examples:
-      |FirstName | LastName | Password    | Gender     | Email                           |mm      | dd | aaaa |
-      | Sirine   | Mrabet   | s@tg$M9%    | Female     | mrabet.sirine1@gmail.com        |Sptembre| 30 | 1986 |
+      | login            | password    |
+      | SirineMrabet     | stesting    |
+
+
+    #other possible scenarios
+    # Sign-in with  FB, twitter, Linked-In
+    # Forget my password
