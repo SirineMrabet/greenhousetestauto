@@ -5,9 +5,7 @@ Feature: As a non-registered user I can sign-up
      Scenario Outline:  Sign-up a non-registered user
        Given I'm in the home page
        When I click on the link to join
-       And I enter <FirstName> <LastName> <Email> <Password> <Gender> birthday <mm><dd><aaaa>
-       And Accept the term of use
-       And click on Create account button
+       And I create user account with <FirstName> <LastName> <Email> <Password> <Gender> birthday <mm><dd><aaaa>
        Then a confirmation box will appear
       Examples:
       |FirstName | LastName | Password    | Gender     | Email                           |mm      | dd | aaaa |
@@ -18,9 +16,7 @@ Feature: As a non-registered user I can sign-up
     Given I'm in the home page
     And I'm a registered user
     When I click on the link to join
-    And I enter <FirstName> <LastName> <Email> <Password> <Gender> birthday <mm><dd><aaaa>
-    And Accept the term of use
-    And click on Create account button
+    And I create user account with <FirstName> <LastName> <Email> <Password> <Gender> birthday <mm><dd><aaaa>
     Then an error msg appears indicating that I already have an account
     Examples:
       |FirstName | LastName | Password    | Gender     | Email                           |mm      | dd | aaaa |

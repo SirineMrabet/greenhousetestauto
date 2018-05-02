@@ -18,7 +18,9 @@ public class SignUP_Page {
     }
 
 
-
+    public static final String _Join= "//a[@href='/testing/signup']";
+    @FindBy(how = How.ID, using = _Join)
+    public WebElement Join;
 
     public static final String _firstName = "firstName";
     @FindBy(how = How.ID, using = _firstName)

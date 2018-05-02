@@ -14,6 +14,10 @@ public class SignIN_Page {
     }
 
 
+    public static final String _SignIN= "//a[@href='/testing/signin']";
+    @FindBy(how = How.ID, using = _SignIN)
+    public WebElement SignIN;
+
     public static final String _login = "login";
     @FindBy(how = How.ID, using = _login)
     public WebElement login;
@@ -37,5 +41,9 @@ public class SignIN_Page {
     public static final String _linkedin_signin = "linkedin_signin";
     @FindBy(how = How.ID, using = _linkedin_signin)
     public WebElement linkedin_signin;
+
+    public static final String _Sign_out = "//a[href='/testing/signout']";
+    @FindBy(how = How.ID, using = _Sign_out)
+    public WebElement Sign_out;
 
 }

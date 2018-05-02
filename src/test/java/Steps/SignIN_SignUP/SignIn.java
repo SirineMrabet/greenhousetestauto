@@ -1,7 +1,8 @@
 package Steps.SignIN_SignUP;
 
 import Base.BaseUtile;
-import cucumber.api.java.en.Given;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -15,44 +16,40 @@ public class SignIn extends BaseUtile{
         this.driver=Base.driver;
     }
 
-    @Given("^I'm in the home page$")
-    public void i_m_in_the_home_page()  {
-        // Write code here that turns the phrase above into concrete actions
+    @When("^I click on the link to sign-in$")
+    public void i_click_on_the_link_to_sign_in()  {
 
     }
 
-    @When("^I click on the link to join$")
-    public void i_click_on_the_link_to_join()  {
-        // Write code here that turns the phrase above into concrete actions
+    @When("^I enter SirineMrabet s@tg\\$M(\\d+)%$")
+    public void i_enter_SirineMrabet_s_tg$M(int arg1) {
 
     }
 
-    @When("^I enter Sirine Mrabet mrabet\\.sirine(\\d+)@gmail\\.com spg(\\d+)\\* Female birthday Sptembre(\\d+)$")
-    public void i_enter_Sirine_Mrabet_mrabet_sirine_gmail_com_spg_Female_birthday_Sptembre(int arg1, int arg2, int arg3)  {
+    @When("^I click on sign-in button$")
+    public void i_click_on_sign_in_button()  {
 
     }
 
-    @When("^Accept the term of use$")
-    public void accept_the_term_of_use()  {
+    @Then("^the current user is connected$")
+    public void the_current_user_is_connected()  {
 
     }
 
-    @When("^click on Create account button$")
-    public void click_on_Create_account_button()  {
+    
+
+    @Then("^the current user is not connected$")
+    public void the_current_user_is_not_connected()  {
 
     }
 
-    @Then("^a confirmation box will appear$")
-    public void a_confirmation_box_will_appear() {
+    @Then("^an error msg is displayed indicating that the current user does no have an account$")
+    public void an_error_msg_is_displayed_indicating_that_the_current_user_does_no_have_an_account()  {
 
     }
 
-    @Given("^I'm a registered user$")
-    public void i_m_a_registered_user()  {
+    @And("^I put ([^\\\"]*) ([^\\\"]*)$")
+    public void iPutLoginPassword()  {
 
-    }
-
-    @Then("^an error msg appears indicating that I already have an account$")
-    public void an_error_msg_appears_indicating_that_I_already_have_an_account() {
     }
 }
