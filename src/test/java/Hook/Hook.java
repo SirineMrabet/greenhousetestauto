@@ -25,6 +25,7 @@ public class Hook extends BaseUtile {
     private BaseUtile base;
     private String Browser;
     private String URL;
+    private String file="Config/Config.properties";
     public Hook(BaseUtile base) {
         this.base = base;
         this.driver = base.driver;
@@ -35,8 +36,8 @@ public class Hook extends BaseUtile {
     public void InitializeTest(Scenario scenario)throws IOException {
         //************************* Get the URL and the browser configuration preferences from config file ***********//
         ConfigGetPropertyValues Conf = new ConfigGetPropertyValues();
-        Browser = Conf.getPropValues("Config/Config.properties","browser");
-        URL= Conf.getPropValues("Config/Config.properties","url");
+        Browser = Conf.getPropValues(file,"browser");
+        URL= Conf.getPropValues(file,"url");
 
         System.out.println("Opening the browser");
         System.out.println("Scenario Name: "+scenario.getName());

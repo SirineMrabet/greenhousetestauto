@@ -1,0 +1,9 @@
+Runner/TestRunner.class
+Base/BaseUtile.class
+Pages/SignUP_Page.class
+Helpers/CaptureScreenshot.class
+Steps/SignIN_SignUP/SignIn.class
+Steps/SignIN_SignUP/SignUP.class
+Pages/SignIN_Page.class
+Hook/Hook.class
+Helpers/ConfigGetPropertyValues.class

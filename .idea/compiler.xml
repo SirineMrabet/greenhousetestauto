@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="greenhousetestauto" />
         <module name="Template" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="greenhousetestauto" target="1.5" />
       <module name="Template" target="1.5" />
     </bytecodeTargetLevel>
   </component>

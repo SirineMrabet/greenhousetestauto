@@ -3,8 +3,6 @@ package Steps.SignIN_SignUP;
 import Base.BaseUtile;
 import Helpers.ConfigGetPropertyValues;
 import Pages.SignIN_Page;
-import Pages.SignUP_Page;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,9 +21,15 @@ public class SignIn extends BaseUtile{
 
     SignIN_Page PO;
     ConfigGetPropertyValues Config;
+    String ConfigFile="Config/Config.properties";
+    String MsgFile="Config/msg.properties";
+    String UsersFile="Config/Users.properties";
+
+
+
     SignIn(BaseUtile Base){
         this.driver=Base.driver;
-        SignIN_Page PO = new SignIN_Page(Base.driver);
+        PO = new SignIN_Page(Base.driver);
         Config = new ConfigGetPropertyValues();
     }
 
@@ -33,7 +37,7 @@ public class SignIn extends BaseUtile{
     public void i_click_on_the_link_to_sign_in() throws IOException {
         PO.SignIN.click();
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL, Config.getPropValues("Config/Config.properties","url")+"signin");
+        Assert.assertEquals(URL, Config.getPropValues(ConfigFile,"url")+"signin");
 
     }
 
@@ -52,7 +56,7 @@ public class SignIn extends BaseUtile{
     @Then("^the current user is connected$")
     public void the_current_user_is_connected() throws IOException {
         SignIN_Page P1 = new SignIN_Page(driver);
-        String userName=  Config.getPropValues("Config/Users.properties","user1");
+        String userName=  Config.getPropValues(UsersFile,"user1");
 
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + userName + "')]"));
         Assert.assertTrue(list.size() > 0,"Text not found!");
@@ -67,7 +71,7 @@ public class SignIn extends BaseUtile{
     @Then("^the current user is not connected$")
     public void the_current_user_is_not_connected() throws IOException {
         SignIN_Page P1 = new SignIN_Page(driver);
-        String userName=  Config.getPropValues("Config/Users.properties","user1");
+        String userName=  Config.getPropValues(ConfigFile,"user1");
 
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + userName + "')]"));
         Assert.assertFalse(list.size() > 0,"Text found!");
@@ -79,7 +83,7 @@ public class SignIn extends BaseUtile{
 
     @Then("^an error msg is displayed indicating that the current user does no have an account$")
     public void an_error_msg_is_displayed_indicating_that_the_current_user_does_no_have_an_account() throws IOException {
-        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues("Config/msg.properties","NOTExist") + "')]"));
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues(MsgFile,"NOTExist") + "')]"));
         Assert.assertTrue(list.size() > 0,"Text not found!");
 
 

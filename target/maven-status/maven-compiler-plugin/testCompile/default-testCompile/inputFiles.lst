@@ -1,0 +1,9 @@
+/home/smrabet/greenhousetestauto/src/test/java/Pages/SignIN_Page.java
+/home/smrabet/greenhousetestauto/src/test/java/Steps/SignIN_SignUP/SignUP.java
+/home/smrabet/greenhousetestauto/src/test/java/Helpers/CaptureScreenshot.java
+/home/smrabet/greenhousetestauto/src/test/java/Hook/Hook.java
+/home/smrabet/greenhousetestauto/src/test/java/Helpers/ConfigGetPropertyValues.java
+/home/smrabet/greenhousetestauto/src/test/java/Runner/TestRunner.java
+/home/smrabet/greenhousetestauto/src/test/java/Steps/SignIN_SignUP/SignIn.java
+/home/smrabet/greenhousetestauto/src/test/java/Base/BaseUtile.java
+/home/smrabet/greenhousetestauto/src/test/java/Pages/SignUP_Page.java

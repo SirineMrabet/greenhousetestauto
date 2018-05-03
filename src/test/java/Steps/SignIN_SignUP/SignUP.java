@@ -22,9 +22,12 @@ public class SignUP extends BaseUtile{
 
     SignUP_Page PO;
     ConfigGetPropertyValues Config;
+    String ConfigFile="Config/Config.properties";
+    String MsgFile="Config/msg.properties";
+    String UsersFile="Config/Users.properties";
     SignUP(BaseUtile Base){
         this.driver=Base.driver;
-        SignUP_Page PO = new SignUP_Page(Base.driver);
+        PO = new SignUP_Page(Base.driver);
         Config = new ConfigGetPropertyValues();
     }
 
@@ -33,7 +36,7 @@ public class SignUP extends BaseUtile{
     public void i_m_in_the_home_page() throws IOException {
 
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL, Config.getPropValues("Config/Config.properties","url"));
+        Assert.assertEquals(URL, Config.getPropValues(ConfigFile,"url"));
 
 
     }
@@ -42,7 +45,7 @@ public class SignUP extends BaseUtile{
     public void i_click_on_the_link_to_join() throws IOException {
         PO.Join.click();
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL, Config.getPropValues("Config/Config.properties","url")+"signup");
+        Assert.assertEquals(URL, Config.getPropValues(ConfigFile,"url")+"signup");
 
     }
 
@@ -71,7 +74,7 @@ public class SignUP extends BaseUtile{
     @Then("^a confirmation box will appear$")
     public void a_confirmation_box_will_appear() throws IOException {
 
-        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues("Config/msg.properties","success") + "')]"));
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues(MsgFile,"success") + "')]"));
         Assert.assertTrue(list.size() > 0,"Text not found!");
 
 
@@ -82,9 +85,9 @@ public class SignUP extends BaseUtile{
         SignIN_Page P1 = new SignIN_Page(driver);
 
 
-        String login=  Config.getPropValues("Config/Users.properties","login1");
-        String userName=  Config.getPropValues("Config/Users.properties","user1");
-        String pass= Config.getPropValues("Config/Users.properties","pass1");
+        String login=  Config.getPropValues(UsersFile,"login1");
+        String userName=  Config.getPropValues(ConfigFile,"user1");
+        String pass= Config.getPropValues(UsersFile,"pass1");
         P1.login.sendKeys(login);
         P1.password.sendKeys(pass);
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + userName + "')]"));
@@ -93,19 +96,15 @@ public class SignUP extends BaseUtile{
         Assert.assertTrue(list.size() > 0,"Text not found!");
         P1.Sign_out.click();
 
-
-
-
-
     }
 
     @Then("^an error msg appears indicating that I already have an account$")
     public void an_error_msg_appears_indicating_that_I_already_have_an_account() throws IOException {
 
-        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues("Config/msg.properties","failure") + "')]"));
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues(MsgFile,"failure") + "')]"));
         Assert.assertTrue(list.size() > 0,"Text not found!");
 
-        list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues("Config/msg.properties","mailexist") + "')]"));
+        list = driver.findElements(By.xpath("//*[contains(text(),'" + Config.getPropValues(MsgFile,"mailexist") + "')]"));
         Assert.assertTrue(list.size() > 0,"Text not found!");
     }
 
